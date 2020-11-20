@@ -28,7 +28,28 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  isaiahgrace
 
 # Build settings
-theme: minima
+#theme: minima
+#theme: jekyll-theme-midnight
+
+# Specific to just-the-docs theme
+remote_theme: pmarsceill/just-the-docs
+
+# This is specific to just-the-docs
+search_enabled: false
+
+# set the color scheme
+color_scheme: light
+
+# Aux links for the upper right navigation
+aux_links:
+  "My GitHub":
+    - "//github.com/isaiahgrace"
+  "My Resume":
+    - "https://github.com/IsaiahGrace/Resume/raw/master/IsaiahGraceResume.pdf"
+
+# Makes Aux links open in a new tab. Default is false
+aux_links_new_tab: false
+
 
 plugins:
   - jekyll-feed
