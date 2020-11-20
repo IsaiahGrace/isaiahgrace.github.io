@@ -28,8 +28,8 @@ twitter_username: irgkenya4
 github_username:  isaiahgrace
 
 # Build settings
-theme: jekyll-theme-midnight
-#theme: jekyll-theme-midnight
+theme: minima
+
 
 plugins:
   - jekyll-feed
