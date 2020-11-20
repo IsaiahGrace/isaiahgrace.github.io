@@ -1,7 +1,8 @@
 ---
-layout: page
+#layout: page
 title:  "Musical-lights system"
 categories: musical-lights
+has_children: true
 ---
 
 # Overview

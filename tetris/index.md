@@ -1,7 +1,8 @@
 ---
-layout: page
+#layout: page
 title:  "Tetris hand-held console summary"
 categories: tetris
+has_children: true
 ---
 
 # Overview

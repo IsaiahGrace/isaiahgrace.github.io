@@ -1,7 +1,8 @@
 ---
-layout: page
+#layout: page
 title:  "POCAR GPS real-time tracking"
 categories: pocar
+has_children: true
 ---
 
 # Overview
