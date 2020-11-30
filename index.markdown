@@ -4,7 +4,7 @@
 
 #layout: home
 ---
-This is my website. I'm not a front end developer. But hopefully this site can showcase some interesting projects I've worked on!
+This site showcases some interesting projects I've worked on. Everything is under heavy development, and more content is coming every day.
 
 # Projects:
 

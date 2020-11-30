@@ -25,3 +25,4 @@ These pages build on one another and are meant to be read in order. The first fe
   * [The Instruction Set](isa.html)
   * [The ALU](alu.html)
   * [The Register File](reg.html)
+  * [Verification](verification.html)

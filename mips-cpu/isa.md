@@ -5,7 +5,7 @@ nav_order: 1
 ---
 
 # The Instruction Set
-The foundation of any CPU design is the Instruction Set Architecture (ISA). This is the first choice a computer architect must make and will influence everything that follows. The ISA is the set of instructions that the CPU is capable of executing. Programs may be written directly using these instructions (Assembly), or by using a compiler that translates a high level language (like C) into these instructions. I could create my own ISA and build a computer around it, but no compilers would be able to create programs for my CPU to run. Thus, great care must be taken when selecting an ISA. The course staff made this design for us and opted for a slightly modified MIPS ISA. MIPS is a Reduced Instruction Set Computer (RISC) architecture that attempts to simplify and reduce the set of instructions that hardware engineers must implement. RISC architectures have some great benefits compared to Complex Instruction Set Computers (CISC). For example MIPS only has four instructions that modify memory (RAM), two types of load, and two types of save. This massively simplifies our work at the expense of increasing the number of instructions needed to accomplish a task. That's an okay trade-off because the compiler will typically do all that heavy lifting for us. The C code will look identical across different ISAs.
+The foundation of any CPU design is the Instruction Set Architecture (ISA). This is the first choice a computer architect must make and will influence everything that follows. The ISA is the set of instructions that the CPU is capable of executing. Programs may be written directly using these instructions (Assembly), or by using a compiler that translates a high level language (like C) into these instructions. I could create my own ISA and build a computer around it, but no compilers would be able to create programs for my CPU to run. Thus, great care must be taken when selecting an ISA. The course staff at Purdue opted for a slightly modified MIPS ISA. MIPS is a Reduced Instruction Set Computer (RISC) architecture that attempts to simplify and reduce the set of instructions that hardware engineers must implement. RISC architectures have some great benefits compared to Complex Instruction Set Computers (CISC). For example MIPS only has four instructions that modify memory (RAM), two types of load, and two types of save. This massively simplifies our work at the expense of increasing the number of instructions needed to accomplish a task. That's an okay trade-off because the compiler will typically do all that heavy lifting for us. The C code will look identical across different ISAs.
 
 
 # Why not RISC-V?
@@ -24,7 +24,7 @@ $31                  return address
 
 
 # R-type Instructions
-These instructions are the bread and butter of the CPU. They take two registers ```$rs,$rt``` and perform some operation on them, saving the result in the destination register ```$rd```. you might recognize basic logical functions like AND, OR, and  XOR. Also included are basic arithmetic functions like addition and subtraction. Noticeably missing is multiply and divide! This is one of the trade offs the MIPS ISA makes in the name of hardware simplicity. The compiler or programmer must write their own multiplication and division subroutines, an easier job for the hardware engineer means slower performance.
+These instructions are the bread and butter of the CPU. They take two registers ```$rs,$rt``` and perform some operation on them, saving the result in the destination register ```$rd```. you might recognize basic logical functions like AND, OR, and  XOR. Also included are basic arithmetic functions like addition and subtraction. Noticeably missing is multiply and divide! This is one of the trade offs the MIPS ISA makes in the name of hardware simplicity. The compiler or programmer must write their own multiplication and division subroutines; an easier job for the hardware engineer means slower performance.
 
 The odd one out here is ```JR```. This is an unconditional jump to the value of the register ```$rs```.
 
@@ -48,9 +48,9 @@ XOR    $rd,$rs,$rt   R[rd] <= R[rs] XOR R[rt]
 # I-type Instructions
 These are immediate instructions. This means that the ```imm``` part of the instruction must be known when the program is written, and the value is embedded in the instruction itself. For instance, if the programmer wanted to set the value of register ```$4``` to 512, they could use ```ADDI $4, $0, 512```. Notice that the source register ```$rs``` must still be specified, but we chose ```$0``` which has a constant value of zero.
 
-Our primary memory access instructions are load word ```LW``` and save word ```SW```. The other two memory access instructions ```LL``` and ```SC``` are used to create atomic actions between two cores in a multi-core CPU. These instructions will be required when we want to program in a multi-threaded environment, I'll discuss these two later on.
+Our primary memory access instructions are load word ```LW``` and save word ```SW```. The other two memory access instructions ```LL``` and ```SC``` are used to create atomic actions between two cores in a multi-core CPU. These instructions will be required when we want to program in a multi-threaded environment. I'll discuss these two later on.
 
-Also present in this list are the instructions that will form the basis of loops and conditional statements. These are the conditionals  branch equal ```BEQ``` and branch not equal ```BNE```. By using a comparison like ```SLT $1,$2,$3``` and then ```BNE $0,$1,label``` we branch to ```label``` if ```$2 < $3```.
+Immediate instructions also include conditional branches. These will form the basis of loops and conditional statements. These are branch equal ```BEQ``` and branch not equal ```BNE```. By using a comparison like ```SLT $1,$2,$3``` and then ```BNE $0,$1,label``` we branch to ```label``` if ```$2 < $3```.
 
 ```
 ADDIU  $rt,$rs,imm   R[rt] <= R[rs] + SignExtImm (unchecked overflow)
@@ -71,7 +71,7 @@ XORI   $rt,$rs,imm   R[rt] <= R[rs] XOR ZeroExtImm
 
 
 # J-type Instructions
-Jump type instrucions are fairly simple. ```J``` is an unconditional jump to an immedeate value encoded in the instruction. ```JAL``` takes the address of the NEXT instruction and places it in ```$31```, then jumps to ```label```. This is the foundation of a function call. ```JAL``` allows the called function to return and continue execution using ```JR $31```.
+Jump type instrucions are fairly simple. ```J``` is an unconditional jump to an immedeate value encoded in the instruction. ```JAL``` takes the address of the *next* instruction and places it in ```$31```, then jumps to ```label```. This is the foundation of a function call. ```JAL``` allows the called function to return and continue execution using ```JR $31```.
 
 ```
 J      label         PC <= JumpAddr
