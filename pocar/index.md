@@ -16,4 +16,10 @@ This is a summary of my class porject to design a real time GPS tracking solutio
   * Python
   * Systemd service integraton
   
+# Pages
 
+## Planned
+  * The hardware that makes it all possible
+  * Writing python scripts and integrating them into systemd
+  * AWS Lambda and github pages
+  

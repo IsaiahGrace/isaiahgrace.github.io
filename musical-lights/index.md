@@ -10,15 +10,21 @@ has_children: true
 This is a summary of my independent project to integrate RGB lighting and my spotify desktop player to create dynamic and subltle mood lighting.
 
 # Tools
-
   * Raspberry Pi zero W
   * Planck EZ GLOW (STM32F303 microcontroller)
+  * QMK keyboard firmware
   * Systemd
   * Python
   * C
-  
-  
-  
-  
 
+# Pages
+## Completed
 
+## In Progress
+
+## Planned
+  * The LEDs custom protocol
+  * Converting music to color
+  * Managing the Finite State Machine
+  * The Raspberry Pi client
+  * The QMK keyboard client
