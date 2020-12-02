@@ -48,7 +48,7 @@ aux_links:
     - "https://github.com/IsaiahGrace/Resume/raw/master/IsaiahGraceResume.pdf"
 
 # Makes Aux links open in a new tab. Default is false
-aux_links_new_tab: false
+aux_links_new_tab: true
 
 
 plugins:
@@ -62,7 +62,7 @@ plugins:
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
-# exclude:
+#exclude:
 #   - .sass-cache/
 #   - .jekyll-cache/
 #   - gemfiles/
