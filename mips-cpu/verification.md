@@ -52,6 +52,57 @@ This signal controls what value should be loaded into the Program Counter (PC) f
 
 # ```PC_sel``` in action
 
-![Overview](../media/mips-cpu-control-unit-tb-overview.png)
+The screenshots below come from MentorGraphics' Modelsim software. The environment provided by the course staff included helpful scripts to get us up and running with Modelsim testbenches and simulation. Now that I no longer have access to Purude's servers, I've been hacking together a way to run Modelsim on my Arch Linux desktop. The solution I've settled on uses a Docker container to manage the library dependencies. It's been an involved process to create these screenshots, so let's dive in and take a look.
+
 ![BEQ](../media/mips-cpu-control-unit-tb-BEQ.png)
-![JR](../media/mips-cpu-control-unit-tb-JR.png)
+
+This screenshot shows a graph of inputs and outputs of our control unit as they change over time. The inputs are set by the testbench, and the outputs are created by the simulated hardware. This is where our enumerations really shine. We don't know or care what the bit encoding of our signals are, we just care that the labels are correct. Let's dissect what's happening in this first picture, and hopefully we'll gain some understanding of our control unit. Our functions outputs change whenever the inputs change, but for this testbench I've chosen to only change inputs on the rising edge of the clock, just for my own sanity. At the first rising edge of the clock, the ```OPCODE``` is ```BEQ``` (Branch if Equal) and the value of ```zero``` is ```0```. Here ```zero``` is a single wire, and it acts a little like a boolean; it is high if the output from the ALU is zero, and low otherwise. The controller is telling the ALU to subtract ```ALUOP = ALU_SUB```, and because ```zero``` is low, the branch if equal should not be taken! The controller sets ```PC_sel``` to ```PC_4```.
+
+In the next clock cycle, the value of ```PC_sel``` is ```PC_HALT```. What happened? There wasn't a halt instruction! This is a feature of our control unit, and allows our single cycle processor to function with a memory latency of more than one clock cycle. The signal ```i_hit``` goes high only if the data coming from memory is valid. The ```PC_HALT``` just tells the program counter not to advance, because the instruction hasn't arrived yet.
+
+A few more clock cycles progress as we wait for the memory to return the next instruction. Finally it arrives, its still ```BEQ``` but this time ```zero``` is high! The CPU should take the branch! ```PC_sel``` takes the value ```Branch``` and the program counter will use the value encoded in the instruction to calculate the destination address.
+
+# A glimpse of the testbench code
+
+So, we've seen a simulation of a module in action, let's look at some of the code that drove the inputs. Remember, we're simulating the control module in isolation. We've used Verilog tasks (very similar to functions) to implement our testbench, so each one of these test cases is a single line of code!
+
+```verilog
+supply_inputs(1'b0, BEQ, XOR);
+supply_inputs(1'b1, BEQ, XOR);
+```
+
+The real work happens in the ```supply_inputs``` task, which takes the module inputs as arguments and controls the actual signals supplied to the simulated control module.
+Notice how it doesn't matter what the ```funct``` field of the instruction is for this particular test-case. I've supplied ```XOR```, but the control module tells the ALU to subtract, this is because that subtraction is the comparison we need to branch if equal. In the completed CPU these bits would just be garbage, they would be some subset of the destination of the branch.
+
+```verilog
+task supply_inputs;
+  input logic zero;
+  input opcode_t opcode;
+  input funct_t funct;
+  begin
+    cuif.i_hit = 1'b0;
+    for (int i = 0; i < LAT; i++)
+	  @(posedge CLK);
+	  
+    cuif.i_hit = 1'b1;
+    cuif.zero = zero;
+    cuif.opcode = opcode;
+    cuif.funct = funct;
+     
+    if (opcode == LW || opcode == SW)
+      begin
+        @(posedge CLK);
+        cuif.i_hit = 1'b0;
+        for (int i = 0; i < LAT; i++)
+          @(posedge CLK);
+        cuif.d_hit = 1'b1;
+        @(posedge CLK);
+        cuif.d_hit = 1'b0;
+      end
+    else
+      @(posedge CLK);
+	end
+endtask // supply_inputs
+```
+
+The code above supplies inputs to the control module, but doesn't test their outputs! This is a big oversight if we wanted to run lots of tests and be certain of this modules correctness. I wrote this particular testbench early on in my computer architecture class, and reviewed the results by hand. This particular hardware module is simple enough to make this feasible. By the time I got to writing the caches, my testbenches were validating the modules outputs on every clock cycle.
