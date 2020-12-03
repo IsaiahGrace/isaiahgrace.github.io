@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Isaiah's Project Showcase
+title: Isaiah Grace Project Showcase
 email: isaiah@graces.com
 description: >- # this means to ignore newlines until "baseurl:"
   This is a showcase of some of my side-projects and school-projects.

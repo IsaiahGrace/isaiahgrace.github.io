@@ -16,7 +16,7 @@ module alu (input logic [31:0]  porta,
             output logic [31:0] outputport);
 ```
 
-The 4 bit ```aluop``` is an encoding of the function that is desired. Below is a table of operations that this ALU is capable of performing. You'll notice that it closely matches many of the R-type and I-type instructions. The instruction decoding logic is responsible for selecting the correct signals for ports A and B, as well as determining the correct function to perform.
+The 4-bit ```aluop``` is an encoding of the function that is desired. Below is a table of operations that this ALU is capable of performing. You'll notice that it closely matches many of the R-type and I-type instructions. The instruction decoding logic is responsible for selecting the correct signals for ports A and B, as well as determining the correct function to perform.
 
 ```verilog
   typedef enum logic [3:0] {
@@ -68,6 +68,6 @@ case (aluop)
 endcase
 ```
 
-As you can see, the syntax of Verilog does all the heavy lifting for us. As a hardware engineers using Verilog we are thankfully abstracted away from having to piece together half adders and full adders (God forbid single logic gates!) to add two 32bit numbers. This way the synthesis tool-chains are responsible for implementing the actual logical functions desired. They can leverage purpose built FPGA blocks, or standard cell macros defined in a fabricator's Process Design Kit (PDK).
+As you can see, the syntax of Verilog does all the heavy lifting for us. As a hardware engineers using Verilog we are thankfully abstracted away from having to piece together half adders and full adders (God forbid single logic gates!) to add two 32-bit numbers. This way the synthesis tool-chains are responsible for implementing the actual logical functions desired. They can leverage purpose built FPGA blocks, or standard cell macros defined in a fabricator's Process Design Kit (PDK).
 
 You might notice that ```ALU_SLT``` takes many more lines of code than the other operators. This is a signed comparison, using Verilog's unsigned data types. It's not the most elegant way of writing this particular function, but it's fairly straight forward and demonstrates the four possible sign combinations when comparing two numbers. We are using 2's compliment to represent signed numbers, so the most significant bit has a negative value.
