@@ -36,6 +36,7 @@ remote_theme: pmarsceill/just-the-docs
 
 # This is specific to just-the-docs
 search_enabled: false
+heading_anchors: false
 
 # set the color scheme
 color_scheme: light
