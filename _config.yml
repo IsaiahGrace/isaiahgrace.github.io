@@ -38,6 +38,16 @@ remote_theme: pmarsceill/just-the-docs
 search_enabled: false
 heading_anchors: false
 
+# These two options add line numbers to the code snippets
+compress_html:
+  ignore:
+    envs: all
+
+#kramdown:
+#  syntax_highlighter_opts:
+#    block:
+#      line_numbers: true
+
 # set the color scheme
 color_scheme: light
 
