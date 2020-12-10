@@ -2,26 +2,23 @@
 title:  "Musical-lights system"
 categories: musical-lights
 has_children: true
+nav_order: 4
 ---
 
-# Overview
+# Introduction
+
+Page under construction
+{: .label .label-yellow }
 
 This is a summary of my independent project to integrate RGB lighting and my spotify desktop player to create dynamic and subltle mood lighting.
 
 ![Musical-lights-top-level](../media/Musical-lights-top-level.png)
 
-
-
-# Pages
-## Completed
-## In Progress
-## Planned
-  * The LEDs custom protocol
-  * Converting music to color
-  * Managing the Finite State Machine
-  * The Raspberry Pi client
-  * The QMK keyboard client
-
+### The LEDs custom protocol *(coming soon)*
+### Converting music to color *(coming soon)*
+### Managing the Finite State Machine *(coming soon)*
+### The Raspberry Pi client *(coming soon)*
+### The QMK keyboard client *(coming soon)*
 
 # Tools
   * Raspberry Pi zero W
