@@ -6,7 +6,7 @@ nav_order: 2
 
 # The Arithmetic Logic unit
 
-This is the meat of the CPU. The ALU is the collection of circuitry that actually performs computations on data. The ALU has two input ports for data, one input port to select the desired function, and one output port. There are no flip-flops here, this is purely combination logic (The value of the output is purely a function of the current inputs). Below is the Verilog module definition showing three inputs and one output.
+This is it. This is where it things happen. The ALU is the collection of circuitry that actually performs operations on data. The ALU has two input ports for data, one input port to select the desired function, and one output port. There are no flip-flops here, this is purely combination logic (The value of the output is purely a function of the current inputs). Below is the Verilog module definition showing three inputs and one output.
 
 
 ```verilog
@@ -68,6 +68,6 @@ case (aluop)
 endcase
 ```
 
-As you can see, the syntax of Verilog does all the heavy lifting for us. As a hardware engineers using Verilog we are thankfully abstracted away from having to piece together half adders and full adders (God forbid single logic gates!) to add two 32-bit numbers. This way the synthesis tool-chains are responsible for implementing the actual logical functions desired. They can leverage purpose built FPGA blocks, or standard cell macros defined in a fabricator's Process Design Kit (PDK).
+As you can see, the syntax of Verilog does all the heavy lifting for us. As a hardware engineers using Verilog we are thankfully abstracted away from having to piece together logic gates in order to add numbers. This way the synthesis tool-chains (hardware equivalent of compilers) are responsible for implementing the actual logical functions desired. They can leverage purpose built FPGA blocks, or standard cell macros defined in a fabricator's Process Design Kit (PDK).
 
 You might notice that ```ALU_SLT``` takes many more lines of code than the other operators. This is a signed comparison, using Verilog's unsigned data types. It's not the most elegant way of writing this particular function, but it's fairly straight forward and demonstrates the four possible sign combinations when comparing two numbers. We are using 2's compliment to represent signed numbers, so the most significant bit has a negative value.
