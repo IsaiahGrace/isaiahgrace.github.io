@@ -4,13 +4,17 @@ categories: "Tetris"
 has_children: true
 ---
 
-# Overview
+# Introduction
+
+[![Click to see the whole album](https://i.imgur.com/9mwxCgN.jpeg)](https://imgur.com/gallery/V4nO59C)
 
 This is a write-up of a class project I am very proud of. In the spring of 2019 three classmates and I set out to build "something interesting" for our final project in our class on embedded systems. We brainstormed some ideas, and quickly settled on Tetris. It's simple, It's fun, and most importantly, It's instantly recognizable. There's no explanation necessary. It's Tetris, you know what to do. 
 
 Our class used a 32-bit ARM micro-controller from STMicroelectronics, and the one requirement of the final project was to use it. Our team divided up the initial tasks, and I got to work finding an appropriate screen to use. I settled on a small LCD screen that used a serial line to communicate with the micro-controller. That screen was a blessing and a curse. It took days of tweaking the driver code to get it to work, but once it did we found it to be reliable and high quality. The serial communication was simple and intuitive, but very slow. It took almost two seconds to update every pixel on the screen. We found ways around that limitation, and in our driver, only the pixel changes were transmitted to the screen. The result was a snappy and responsive game of Tetris. The blocks moved as soon as you pressed the buttons.
 
 The pages below outline some of my favorite design and engineering challenges of the project. I hope that each one contains enough context to be read independently. Nothing would please me more than answering your questions, or taking feedback if things are confusing.
+### Watch it in action!
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Zn4HCWd0aRU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### [How to store a Tetris board using only 27 words](/tetris/board.html)
 In this post I talk about the internal data structure that I developed to represent the Tetris board. I'll talk about some of the benefits and draw-backs of the solution I chose. One main advantage is that the whole board only uses 27 32-bit words!
