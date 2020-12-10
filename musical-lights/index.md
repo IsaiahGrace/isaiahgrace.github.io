@@ -1,7 +1,7 @@
 ---
 title:  "Musical-lights system"
 categories: musical-lights
-has_children: true
+has_children: false
 nav_order: 4
 ---
 

@@ -1,7 +1,7 @@
 ---
 title:  "POCAR GPS real-time tracking"
 categories: pocar
-has_children: true
+has_children: false
 nav_order: 3
 ---
 
