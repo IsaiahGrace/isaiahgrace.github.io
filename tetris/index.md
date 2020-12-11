@@ -8,6 +8,7 @@ nav_order: 2
 # Introduction
 
 [![Click to see the whole album](https://i.imgur.com/9mwxCgN.jpeg)](https://imgur.com/gallery/V4nO59C)
+*Click to see the whole album*
 
 This is a write-up of a class project I am very proud of. In the spring of 2019 three classmates and I set out to build "something interesting" for our final project in our class on embedded systems. We brainstormed some ideas, and quickly settled on Tetris. It's simple, It's fun, and most importantly, It's instantly recognizable. There's no explanation necessary. It's Tetris, you know what to do. 
 
