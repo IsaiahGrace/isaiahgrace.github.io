@@ -40,9 +40,13 @@ The display I selected for the project was a cheap generic from Amazon. I found 
 ### The custom PCB and the case *(coming soon)*
 The custom PCB was the icing on the cake of our project. It elevated the final project from a breadboard monstrosity to a slick and portable experience. One of our project members took ownership of the PCB and did a phenomenal job with the layout. Because of her diligence, version 1 of our PCB was all that was needed.
 
+
 # Tools
+  * SPI (for the screen), I2C (for the EEPROM), PWM (for the speaker)
+  * Hardware timers and interrupts
   * C, C++, and ARM Assembly
   * Eclipse IDE
   * Makefiles
   * STM32F051 32bit ARM M0+ micro-controller
   * ILI9225 TFT Display module
+  * NO RTOS, just bare metal
