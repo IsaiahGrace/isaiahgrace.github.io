@@ -74,7 +74,7 @@ This is it! This is the thing that I'll plug the keyboard and a computer into, a
 
 ![Wheelwriter30 proto board front](/media/wheelwriter30-proto-front.jpg)
 
-After a few hours of soldering, I had connected up every row and column, and even tested each connection with a multi-meter, but still, something was wrong. Most keys worked alright, some didn't work at all, and others would print many different letters at once! Failure is a part of every project. Nobody writes bug free code, and nobody builds perfect proto boards. Reliability in hardware is just experience with having it break in many different ways, and fixing each one. So I went about finding the source of my issue methodically. I tested each key an plotted their behavior in a spreadsheet. Green is all good, yellow printed every letter in the column of the key pressed, and red did nothing at all.
+After a few hours of soldering, I had connected up every row and column, and even tested each connection with a multi-meter, but still, something was wrong. Most keys worked alright, some didn't work at all, and others would print many different letters at once! Failure is a part of every project. Nobody writes bug free code, and nobody builds perfect proto boards. Reliability in hardware is just experience with having it break in many different ways, and fixing each one. So I went about finding the source of my issue methodically. I tested each key and plotted their behavior in a spreadsheet. Green is all good, yellow printed every letter in the column of the key pressed, and red did nothing at all.
 
 ![Wheelwriter30 matrix errors](/media/wheelwriter30-matrix-errors.png)
 
@@ -91,7 +91,7 @@ Finally, at long last, the keyboard works! I can loudly clack away on a keyboard
 
 # Design a real PCB
 
-About a month after I completed the proto board, I wanted to practice my KiCad PCB skills, and I selected this project as a great option for a simple PCB layout. It's dead simple, just a bunch of pin headers connected together, no other components. This PCB has been fabricated and is in Maine, but I'm in Michigan right now. So I can't see it yet, but here are some images from kicad showing off the design and some 3D models of the Proton C, courtesy of the QMK firmware team.
+About a month after I completed the proto board, I wanted to practice my KiCad PCB skills, and I selected this project as a great option for a simple PCB layout. It's dead simple, just a bunch of pin headers connected together, no other components. This PCB has been fabricated and is in Maine, but I'm in Michigan right now. So I can't see it yet, but here are some images from KiCad showing off the design and some 3D models of the Proton C, courtesy of the QMK firmware team.
 
 ![Wheelwriter30 PCB](/media/wheelwriter30-pcb.png)
 ![Wheelwriter30 render front](/media/wheelwriter30-pcb-front.jpg)
