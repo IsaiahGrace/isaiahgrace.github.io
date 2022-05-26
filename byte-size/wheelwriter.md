@@ -91,7 +91,7 @@ Finally, at long last, the keyboard works! I can loudly clack away on a keyboard
 
 # Design a real PCB
 
-About a month after I completed the proto board, I wanted to practice my KiCad PCB skills, and I selected this project as a great option for a simple PCB layout. It's dead simple, just a bunch of pin headers connected together, no other components. This PCB has been fabricated and is in Maine, but I'm in Michigan right now. So I can't see it yet, but here are some images from KiCad showing off the design and some 3D models of the Proton C, courtesy of the QMK firmware team.
+About a month after I completed the proto board, I wanted to practice my KiCad PCB skills, and I selected this project as a great option for a simple PCB layout. It's dead simple, just a bunch of pin headers connected together, no other components. While I was waiting for the board to arrive from the factory, I put together some renders on KiCad showing off the design and some 3D models of the Proton C, courtesy of the QMK firmware team.
 
 ![Wheelwriter30 PCB](/media/wheelwriter30-pcb.png)
 ![Wheelwriter30 render front](/media/wheelwriter30-pcb-front.jpg)

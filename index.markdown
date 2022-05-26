@@ -1,4 +1,7 @@
-Welcome to my portfolio website. This site is part blog, part project showcase, and part experiment. I've never done any web development before, I'm much more comfortable writing Verilog, or designing embedded systems.
+Welcome to my portfolio website. This site is part blog, part project showcase, and part experiment. I've never done any web development before, I'm much more comfortable writing Verilog, C++, or designing embedded systems. 
+
+### [IBM Wheelwriter30](/byte-size/wheelwriter)
+Two years ago I picked up an IBM Wheelwriter30 (a paper teletype console) at the Purdue surplus store. I removed the keyboard from the larger machine with the intention of creating a USB keyboard with it but it sat in my parents garage until the fall of 2020. I recently bought a Planck keyboard running the open source QMK firmware, so I had a great starting place from which to reverse engineer the IBM Wheelwriter.
 
 ### [MIPS CPU](/mips-cpu)
 This is the largest digital design project I've completed. This project represents the work of myself and one other student as we worked together in a Computer Architecture course to build a dual core MIPS CPU. It was a great project to dig a little deeper into some of the pillars of modern computer architecture.
